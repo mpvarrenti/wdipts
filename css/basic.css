@@ -1,0 +1,20 @@
+#everything {
+  width:95%;
+  height:90vh;
+  margin:5vh auto 0 auto;
+  border:thick solid black;
+}
+
+#stage {
+  width:75%;
+  height:20%;
+  margin:2em auto 0 auto;
+  border:thin dotted red;
+}
+
+#grid {
+  width:30vw;
+  height:30vw;
+  margin:2em auto 0 auto;
+  border:thick dashed green;
+}
