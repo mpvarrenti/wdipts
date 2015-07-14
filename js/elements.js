@@ -16,8 +16,6 @@ Elem.attribLoad = function(target, attribObj) {
   }
 }
 
-
-
 var attribsCore = {
   svg: {
     version:"1.1",
@@ -29,4 +27,4 @@ var attribsCore = {
     height:"200",
     fill:"red"
   }
-}
+};
