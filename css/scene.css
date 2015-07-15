@@ -1,0 +1,71 @@
+#screen {
+  position:fixed;
+  perspective:10vw;
+  perspective-origin:2vw 2vw;
+  transform:translateZ(100vw);
+}
+
+.sheet {
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.fore {
+  transform:translateZ(0vw);
+}
+
+.middle {
+  transform:translateZ(-5vw);
+}
+
+.back {
+  transform:translateZ(-10vw);
+}
+
+i {
+  position:relative;
+  left:50vw;
+}
+
+.passFront {
+  animation-name: passFront;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay:0s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes passFront {
+  from {left: -10vw;}
+  to {left: 110vw;}
+}
+
+.passMiddle {
+  animation-name: passMiddle;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-delay:0s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes passMiddle {
+  from {left: -10vw;}
+  to {left: 160vw;}
+}
+
+.passBack {
+  animation-name: passBack;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-delay:0s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes passBack {
+  from {left: -20vw;}
+  to {left: 220vw;}
+}
