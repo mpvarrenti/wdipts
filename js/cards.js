@@ -21,42 +21,63 @@ cardTypes.actions.freq = 0.6;
 cardTypes.items.freq = 0.3;
 cardTypes.effects.freq = 0.1;
 
-var cardsSet = function() {
-  // get grid order
-  var ord = this.order;
 
-  // initialise blank card object
-  var cards = {};
+// return random action path
+var rndCard = function(type) {
+  // debugger;
+  // initialise empty action path
+  var path = [];
+  // get first level of actions
+  var level = type;
+  var keys = Object.keys(level);
 
-  // build card deck
-  // iterate over rows
-  for(var i = 0; i < ord; i++) {
-    //over columns
-    for(var j = 0; j < ord; j++) {
-      cards('sq'+i+j)={};
-      var card = cards('sq'+i+j);
-      // determine card face
-      // roll the d10
-      var roll = d(10);
+  // test if at action definition
+  var test = level.icon;
 
-      if(roll >= 4) {
-        card.style.backgroundColor = "red";
-      }
-      if(roll >= 1) {
-       card.style.backgroundColor = "green"; 
-      }
-      else {
-       card.style.backgroundColor = "blue";  
-      }
-    }
+  while(typeof(test) === "undefined") {
+    // pick random action at level
+    var roll = d(keys.length)
+    var action = keys[roll];
+    path.push(action);
+      
+    level = level[action];
+
+    // iterate over action path
+    // for(var i = 0; i < path.length; i++) {
+    //   level = level[path[i]];
+    // }
+
+    keys = Object.keys(level);
+    test = level.icon;
   }
 
-  // set cards to squares on stage
-  for(card in cards) {
-    var square = document.getElementById(card);
-    for(style in cards[card].style) {
-      square.style[style] = cards[card].style[style];
-    }
+  return path;
+} 
+
+
+// get icon for given action path
+var getIcon = function(path, type) {
+  // get action object at path
+  // initialise icon variable at top of object
+  var icon = type;
+  for(var i = 0; i < path.length; i++) {
+    // move to next level of path
+    icon = icon[path[i]];
   }
+
+  return icon.icon;
 }
+
+// returns icon html
+var getIconHTML = function(icon) {
+  return '<i class="icon '+icon+'"></i>'  
+}
+
+
+
+
+
+
+
+
 

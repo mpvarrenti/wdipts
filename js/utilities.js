@@ -17,5 +17,5 @@ var rndRGB = function() {
 
 // dice roll
 var d = function(sides) {
-  return rndInt(0,sides-1);
+  return rndInt(0,sides);
 }

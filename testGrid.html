@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>wdipts?</title>
+  <!-- font awesome icon set -->
+  <script src="https://use.fonticons.com/126a8c0d.js"></script>
+  
+  <!-- begin linking scripts -->
+  
+<!--
+
+  <script type="text/javascript" src="js/icons.js"></script>
+  <script type="text/javascript" src="js/iconSets.js"></script>
+  <script type="text/javascript" src="js/elements.js"></script>
+  <script type="text/javascript" src="js/svg.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/screen.js"></script>
+
+
+  
+
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/scene.css">
+  <link rel="stylesheet" href="css/classComponents.css">
+-->
+  <script type="text/javascript" src="js/utilities.js"></script>
+  <script type="text/javascript" src="js/cardData.js"></script>
+  <script type="text/javascript" src="js/cards.js"></script>
+  <script type="text/javascript" src="js/grid.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+
+  <!-- begin linking CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <!-- end linking CSS -->
+</head>
+<body>
+
+  <div id="stage"></div>
+<!-- 
+  <i class="icon icon-mountains icon-5x"></i>
+ -->
+
+  <script type="text/javascript">
+    var newGrid = new Grid(gridStandard);
+    newGrid.init();
+    newGrid.draw();
+    newGrid.cards();
+    allListen();
+  </script>  
+</body>
+</html>

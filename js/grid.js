@@ -2,7 +2,7 @@
 
 // standarg grid settings object
 gridStandard = {};
-gridStandard.order = 5;
+gridStandard.order = 10;
 gridStandard.attribs = {};
 gridStandard.attribs.id = "grid";
 gridStandard.style = {};
@@ -112,18 +112,42 @@ var Grid = function(settings) {
         var cardID = "sq"+i+j;
         cards[cardID] = {};
         cards[cardID].style = {};
+        cards[cardID].attributes = {};
         // determine card face
         // roll the d10
         var roll = d(10);
 
-        if(roll >= 4) {
-          cards[cardID].style.backgroundColor = "red";
+        // determine effect
+        // EFFECT
+        if(roll === 0) {
+          cards[cardID].style.border = "thin dashed blue";
+          var effect = rndCard(effects);
+          var icon = getIcon(effect, effects);
+          cards[cardID].innerHTML = getIconHTML(icon);
+          // set path as attribute
+          cards[cardID].attributes.path = effect;
         }
-        if(roll >= 1) {
-          cards[cardID].style.backgroundColor = "green"; 
+        // ITEM
+        if(roll > 0) {
+          cards[cardID].style.border = "thin dashed green"; 
+          var item = rndCard(items);
+          var icon = getIcon(item, items);
+          cards[cardID].innerHTML = getIconHTML(icon);
+          // set path as attribute
+          cards[cardID].attributes.path = item;
         }
-        else {
-          cards[cardID].style.backgroundColor = "blue";  
+        // ACTION
+        if(roll > 3) {
+          // debugger;
+          cards[cardID].style.border = "thin dashed red";
+          // get random action path
+          var action = rndCard(actions);
+          // get icon name
+          var icon = getIcon(action, actions);
+          // get icon html
+          cards[cardID].innerHTML = getIconHTML(icon);
+          // set path as attribute
+          cards[cardID].attributes.path = action;
         }
       }
     }
@@ -131,12 +155,23 @@ var Grid = function(settings) {
     // set cards to squares on stage
     for(card in cards) {
       var square = document.getElementById(card);
+      square.innerHTML = cards[card].innerHTML;
       for(style in cards[card].style) {
         square.style[style] = cards[card].style[style];
+      }
+      for(attribute in cards[card].attributes) {
+        square.setAttribute(attribute, cards[card].attributes[attribute]);
       }
     } 
   }
   // cards() END
+
+  // items() START
+  // adds item pairs to cards
+  this.items = function() {
+    
+  }
+  // items() END
 }
    //////// CONSTRUCTOR END....
   //////
