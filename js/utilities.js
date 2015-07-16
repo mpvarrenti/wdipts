@@ -19,3 +19,9 @@ var rndRGB = function() {
 var d = function(sides) {
   return rndInt(0,sides);
 }
+
+// delay() START
+// returns time to execute function after delay
+var delay = function(code, delay) {
+  timeoutID = window.setTimeout(code, delay);
+}

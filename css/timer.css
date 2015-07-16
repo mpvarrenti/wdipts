@@ -1,0 +1,30 @@
+#hourglass {
+  border:thick solid orange;
+  position:absolute;
+  top:50%;
+  width:70%;
+  height:10%;
+  margin:0 auto;
+}
+
+#sand {
+  background-color: green;
+  height:100%;
+}
+
+.empty {
+  width:0%;
+}
+
+.full {
+  background-color: red;
+  animation:timer 2s linear;
+}
+
+@keyframes timer {
+  0% {width:0%;}
+  0% {background-color:green;}
+  50% {background-color:yellow;}
+  100% {width: 100%;}
+  100% {background-color:red;}
+}

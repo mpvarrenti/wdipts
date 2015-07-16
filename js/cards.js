@@ -24,11 +24,10 @@ cardTypes.effects.freq = 0.1;
 
 // return random action path
 var rndCard = function(type) {
-  // debugger;
   // initialise empty action path
-  var path = [];
+  var path = [type];
   // get first level of actions
-  var level = type;
+  var level = cards[type];
   var keys = Object.keys(level);
 
   // test if at action definition
@@ -56,16 +55,16 @@ var rndCard = function(type) {
 
 
 // get icon for given action path
-var getIcon = function(path, type) {
-  // get action object at path
-  // initialise icon variable at top of object
-  var icon = type;
+var getIcon = function(path) {
+  
+
+  var card = cards;
+  // get terminal card node
   for(var i = 0; i < path.length; i++) {
-    // move to next level of path
-    icon = icon[path[i]];
+    card = card[path[i]];
   }
 
-  return icon.icon;
+  return card.icon;
 }
 
 // returns icon html

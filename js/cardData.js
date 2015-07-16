@@ -6,6 +6,8 @@ cards.actions = {};
 cards.items = {};
 cards.effects = {};
 
+
+
 //                      //
 //                      //
 //  *** ITEM CARDS ***  //
@@ -95,3 +97,7 @@ effects.colour = {
 effects.storm = {
   icon:"icon-night-alt-snow-thunderstorm",
 }
+
+cards.actions = actions;
+cards.items = items;
+cards.effects = effects;

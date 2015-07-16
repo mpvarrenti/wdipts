@@ -46,7 +46,7 @@ var Grid = function(settings) {
   this.init = function() {
     // get grid stage dom node
     var stage = document.getElementById("stage");
-    // debugger;
+    
 
     // remove any children from the grid stage
     while(stage.firstChild) {
@@ -73,7 +73,7 @@ var Grid = function(settings) {
   // draw() START
   // draw squares in blank grid
   this.draw = function() {
-    // debugger;
+    
     // get grid dom node
     var grid = document.getElementById("grid");
     grid.style.height = "300px";
@@ -121,8 +121,8 @@ var Grid = function(settings) {
         // EFFECT
         if(roll === 0) {
           cards[cardID].style.border = "thin dashed blue";
-          var effect = rndCard(effects);
-          var icon = getIcon(effect, effects);
+          var effect = rndCard("effects");
+          var icon = getIcon(effect);
           cards[cardID].innerHTML = getIconHTML(icon);
           // set path as attribute
           cards[cardID].attributes.path = effect;
@@ -130,20 +130,19 @@ var Grid = function(settings) {
         // ITEM
         if(roll > 0) {
           cards[cardID].style.border = "thin dashed green"; 
-          var item = rndCard(items);
-          var icon = getIcon(item, items);
+          var item = rndCard("items");
+          var icon = getIcon(item);
           cards[cardID].innerHTML = getIconHTML(icon);
           // set path as attribute
           cards[cardID].attributes.path = item;
         }
         // ACTION
         if(roll > 3) {
-          // debugger;
           cards[cardID].style.border = "thin dashed red";
           // get random action path
-          var action = rndCard(actions);
+          var action = rndCard("actions");
           // get icon name
-          var icon = getIcon(action, actions);
+          var icon = getIcon(action);
           // get icon html
           cards[cardID].innerHTML = getIconHTML(icon);
           // set path as attribute
@@ -156,6 +155,7 @@ var Grid = function(settings) {
     for(card in cards) {
       var square = document.getElementById(card);
       square.innerHTML = cards[card].innerHTML;
+      square.className = "pending";
       for(style in cards[card].style) {
         square.style[style] = cards[card].style[style];
       }
