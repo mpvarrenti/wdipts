@@ -1,0 +1,10 @@
+#grid {
+  position:relative;
+}
+
+#grid > div {
+  display:inline-block;
+  position:absolute;
+  background-color: black;
+  /*float:left;*/
+}

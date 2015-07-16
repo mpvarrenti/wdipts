@@ -12,16 +12,3 @@
   border:thin dotted red;
 }
 
-#grid {
-  width:30vw;
-  height:30vw;
-  margin:2em auto 0 auto;
-  border:thick dashed green;
-}
-
-#grid > iframe {
-  width:90%;
-  height:100%;
-  margin:0 auto;
-  text-align: center;
-}

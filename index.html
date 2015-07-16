@@ -7,38 +7,42 @@
   <script src="https://use.fonticons.com/126a8c0d.js"></script>
   
   <!-- begin linking scripts -->
+  
+<!--
   <script type="text/javascript" src="js/utilities.js"></script>
 
   <script type="text/javascript" src="js/icons.js"></script>
   <script type="text/javascript" src="js/iconSets.js"></script>
-
-  <!-- animation scripts -->
-  <script type="text/javascript" src="js/sheets2.js"></script>
-  <script type="text/javascript" src="js/animation.js"></script>
-
   <script type="text/javascript" src="js/elements.js"></script>
   <script type="text/javascript" src="js/svg.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-  <!-- end linking scripts -->
+  <script type="text/javascript" src="js/screen.js"></script>
+
+
   
-  <!-- begin linking CSS -->
-  <link rel="stylesheet" href="css/reset.css">
+
   <link rel="stylesheet" href="css/basic.css">
   <link rel="stylesheet" href="css/scene.css">
   <link rel="stylesheet" href="css/classComponents.css">
+-->
+  <script type="text/javascript" src="js/grid.js"></script>
+
+  <!-- begin linking CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/grid.css">
   <!-- end linking CSS -->
 </head>
 <body>
 
-  <div id="head"></div>
-  <div id="thorax"></div>
-  <div id="abdomen"></div>
-
+  <div id="stage"></div>
 <!-- 
   <i class="icon icon-mountains icon-5x"></i>
  -->
- 
- </div>
-  
+
+  <script type="text/javascript">
+    var newGrid = new Grid(gridStandard);
+    newGrid.init();
+    newGrid.draw();
+  </script>  
 </body>
 </html>

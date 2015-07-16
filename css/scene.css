@@ -11,61 +11,72 @@
   height:100%;
 }
 
+/* standard animation class */
+.animate {
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.scroll {
+  animation-name: scroll;
+}
+
+.quick {
+  animation-duration:5s;
+}
+
+.normal {
+  animation-duration:10s;
+}
+
+.slow {
+  animation-duration:80s;
+}
+
+/* scrolling animation */
+@keyframes scroll {
+  from {left: -10%;}
+  to {left: 100%;}
+}
+
 .fore {
+  width:calc(1 * 713px);
   transform:translateZ(0vw);
 }
 
-.middle {
-  transform:translateZ(-5vw);
+.foreground {
+  width:calc(1.4 * 713px);
+  transform:translateZ(-14vw);
 }
 
-.back {
-  transform:translateZ(-10vw);
+.middleFore {
+  width:3.8vw;
+  transform:translateZ(-28vw);
+}
+
+.middle {
+  width:calc(5.2 * 713px);
+  transform:translateZ(-42vw);
+}
+
+.middlBack {
+  width:6.6vw;
+  transform:translateZ(-56vw);
+}
+
+.background {
+  width:8.0vw;
+  transform:translateZ(-70vw);
+}
+
+.back{
+  width:calc(9.4*713px);
+  transform:translateZ(-84vw);
 }
 
 i {
   position:relative;
-  left:50vw;
 }
 
-.passFront {
-  animation-name: passFront;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-delay:0s;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-}
-
-@keyframes passFront {
-  from {left: -10vw;}
-  to {left: 110vw;}
-}
-
-.passMiddle {
-  animation-name: passMiddle;
-  animation-duration: 15s;
-  animation-timing-function: linear;
-  animation-delay:0s;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-}
-
-@keyframes passMiddle {
-  from {left: -10vw;}
-  to {left: 160vw;}
-}
-
-.passBack {
-  animation-name: passBack;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-delay:0s;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-}
-
-@keyframes passBack {
-  from {left: -20vw;}
-  to {left: 220vw;}
-}

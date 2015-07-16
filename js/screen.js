@@ -1,18 +1,23 @@
-var testSet = {
+// standard screen settings object
+var settingsStandard = {
   units:"vw",
   depth:100,
   perspective:10,
   origin:[2, 2],
 }
 
-
-
 function Screen(settings) {
+  // use default settings if no arguments passed
+  // settings = typeof !== 'undefinded' ? a: settingsStandard;
+
   // assing basic screen properties from settings object
   // (faster than being specific but forgoes chance to validate object)
   for(setting in settings) {
     this[setting] = settings[setting];
   }
+
+  // calculate perspective scale multiplier
+  // this.scale = "";
 
   // assign screen css properties
   this.style = {};
@@ -40,6 +45,8 @@ function Screen(settings) {
   // initialise each sheet with relevant Z translation
   for(var i = 0; i < names.length; i++) {
     this.sheets[names[i]] = {};
+    this.sheets[names[i]].dZ = dZ * i;
+    this.sheets[names[i]].scale = (dZ * i)/this.perspective;
     this.sheets[names[i]].style = {};
     this.sheets[names[i]].style.transform = "translateZ(-"+(dZ*i)+this.units+")";
   }
@@ -112,6 +119,7 @@ function Screen(settings) {
     for(var i = 0; i < names.length; i++) {
       // get all sheets of current name
       var layer = document.getElementsByClassName(names[i]);
+      debugger;
       // iterate over all sheets in layer
       for(var j = 0; j < layer.length; i++) {
         // set zIndex based on index in names array
