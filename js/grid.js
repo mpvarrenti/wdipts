@@ -6,9 +6,9 @@ gridStandard.order = 5;
 gridStandard.attribs = {};
 gridStandard.attribs.id = "grid";
 gridStandard.style = {};
-gridStandard.style.width = "100%";
-gridStandard.style.height = "100%";
-gridStandard.style.padding = "5%";
+gridStandard.style.width = "60%";
+// gridStandard.style.height = "100%";
+gridStandard.style.margin = "0 auto"
 gridStandard.style.border = "thick solid red";
 
     //////////////////////
@@ -33,8 +33,8 @@ var Grid = function(settings) {
   // define square style
   
   this.squares.style = {};
-  this.squares.style.width = square;
-  this.squares.style.height = square;
+  this.squares.style.width = square+"%";
+  this.squares.style.height = square+"%";
 
 
   // 
@@ -70,12 +70,13 @@ var Grid = function(settings) {
   }
   // init() END
 
-  // pop() START
-  // populate new grid with squares
+  // draw() START
+  // draw squares in blank grid
   this.draw = function() {
     // debugger;
     // get grid dom node
     var grid = document.getElementById("grid");
+    grid.style.height = "300px";
     // for each row
     for(var iRow = 0; iRow < this.order; iRow++) {
       // for each column
@@ -84,16 +85,58 @@ var Grid = function(settings) {
         var newRect = document.createElement("div");
         newRect.id = "sq"+iRow+iColumn;
         newRect.style.position = "absoloute";
-        newRect.style.width = square+"px";
-        newRect.style.height = square+"px";
-        newRect.style.left = (iColumn * squareAll)+"px";
-        newRect.style.top = (iRow * squareAll)+"px";
+        newRect.style.width = square+"%";
+        newRect.style.height = square+"%";
+        newRect.style.left = (iColumn * squareAll)+"%";
+        newRect.style.top = (iRow * squareAll)+"%";
         grid.appendChild(newRect);
       }
     }
   } 
-  
-  // pop() END
+  // draw() END
+
+  // cards() START
+  // sets card types on squares
+  this.cards = function() {
+    // get grid order
+    var ord = this.order;
+
+    // initialise blank card object
+    var cards = {};
+
+    // build card deck
+    // iterate over rows
+    for(var i = 0; i < ord; i++) {
+      //over columns
+      for(var j = 0; j < ord; j++) {
+        var cardID = "sq"+i+j;
+        cards[cardID] = {};
+        cards[cardID].style = {};
+        // determine card face
+        // roll the d10
+        var roll = d(10);
+
+        if(roll >= 4) {
+          cards[cardID].style.backgroundColor = "red";
+        }
+        if(roll >= 1) {
+          cards[cardID].style.backgroundColor = "green"; 
+        }
+        else {
+          cards[cardID].style.backgroundColor = "blue";  
+        }
+      }
+    }
+
+    // set cards to squares on stage
+    for(card in cards) {
+      var square = document.getElementById(card);
+      for(style in cards[card].style) {
+        square.style[style] = cards[card].style[style];
+      }
+    } 
+  }
+  // cards() END
 }
    //////// CONSTRUCTOR END....
   //////
