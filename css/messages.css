@@ -1,0 +1,13 @@
+#messages {
+  width:25%;
+  height:2em;
+  /*border:thick solid black;*/
+  margin:0 auto;
+  padding:2em;
+}
+
+#messages > p {
+  width:98%;
+  margin:0 auto;
+  font-size:.8em;
+}

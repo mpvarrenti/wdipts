@@ -14,7 +14,6 @@ var rndRGB = function() {
   return "rgb("+triplet+")";
 }
 
-
 // dice roll
 var d = function(sides) {
   return rndInt(0,sides);

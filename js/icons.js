@@ -1,10 +1,3 @@
-// initialise empty namespace
-var Icons = {};
-
-Icons.put = function(name, target){
-  
-}
-
 Icons.getRnd = function() {
   // generate random index number
   var indexRnd = rndInt(0, Icons.set.length);

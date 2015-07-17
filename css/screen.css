@@ -1,5 +1,7 @@
 #screen {
-  position:fixed;
+  width:100%;
+  border:thin dotted black;
+  height:6em;
   perspective:10vw;
   perspective-origin:2vw 2vw;
   transform:translateZ(100vw);
@@ -24,15 +26,15 @@
 }
 
 .quick {
-  animation-duration:5s;
+  animation-duration:20s;
 }
 
 .normal {
-  animation-duration:10s;
+  animation-duration:40s;
 }
 
 .slow {
-  animation-duration:80s;
+  animation-duration:120s;
 }
 
 /* scrolling animation */
@@ -43,12 +45,12 @@
 
 .fore {
   width:calc(1 * 713px);
-  transform:translateZ(0vw);
+  transform:translateZ(0vw) translateY(25%);
 }
 
 .foreground {
   width:calc(1.4 * 713px);
-  transform:translateZ(-14vw);
+  transform:translateZ(-14vw) translateY(-15%);
 }
 
 .middleFore {
@@ -76,7 +78,6 @@
   transform:translateZ(-84vw);
 }
 
-i {
-  position:relative;
+.back > i {
+  transform:scale(5) translateY(-20%);
 }
-

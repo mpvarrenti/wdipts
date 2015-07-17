@@ -1,8 +1,33 @@
 #grid {
   position:relative;
   width:75%;
-  margin:20% auto 0 auto;
+  margin:40% auto 0 auto;
   padding:5%;
+}
+
+@media (min-width:800px) {
+  #body{
+    background-color: red;
+  }
+
+}
+
+.no {
+  background-color: red;
+  animation: match 250ms linear;
+}
+
+.yes {
+  background-color: green;
+  animation: match 250ms linear; 
+}
+
+@keyframes match {
+  0% {opacity:0;}
+  25% {opacity:100;}
+  50% {opacity:0;}
+  75% {opacity:100;}
+  100% {opacity:0;}
 }
 
 
@@ -15,15 +40,19 @@
 }
 
 
+#grid > i {
+  margin-left:25%;
+  margin-right:25%;
+}
+
 .out {
   background-color: linen;
 }
 
-i {
-  margin-top:25%;
-  margin-left:25%;
-}
-
 .clicked {
   background-color: red;
+}
+
+.pending > i {
+  opacity:1;
 }

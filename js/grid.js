@@ -6,7 +6,7 @@ gridStandard.order = 10;
 gridStandard.attribs = {};
 gridStandard.attribs.id = "grid";
 gridStandard.style = {};
-gridStandard.style.width = "60%";
+gridStandard.style.width = "20%";
 // gridStandard.style.height = "100%";
 gridStandard.style.margin = "0 auto"
 gridStandard.style.border = "thick solid red";
@@ -23,7 +23,7 @@ var Grid = function(settings) {
   this.pop = this.order * this.order;
 
   // perform square size calculations
-  var squareAll = 90 / this.order;
+  var squareAll = 100 / this.order;
   var marginAll = squareAll / this.order;
   var marginSide = marginAll / 2;
   var square = squareAll - marginAll;
@@ -83,12 +83,12 @@ var Grid = function(settings) {
       for(var iColumn = 0; iColumn < this.order; iColumn++) {
         // create new rect element
         var newRect = document.createElement("div");
-        newRect.id = "sq"+iRow+iColumn;
+        newRect.id = "sq"+(iRow)+(iColumn);
         newRect.style.position = "absoloute";
         newRect.style.width = square+"%";
         newRect.style.height = square+"%";
-        newRect.style.left = (iColumn * squareAll)+"%";
-        newRect.style.top = (iRow * squareAll)+"%";
+        newRect.style.left = ((iColumn * squareAll)+0.5)+"%";
+        newRect.style.top = ((iRow * squareAll)+0.5)+"%";
         grid.appendChild(newRect);
       }
     }
@@ -165,6 +165,7 @@ var Grid = function(settings) {
     } 
   }
   // cards() END
+
 
   // items() START
   // adds item pairs to cards

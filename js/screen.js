@@ -6,6 +6,12 @@ var settingsStandard = {
   origin:[2, 2],
 }
 
+
+    ////////////////////////
+   //                    //
+  // SCREEN CONSTRUCTOR //
+ //                    //
+////////////////////////
 function Screen(settings) {
   // use default settings if no arguments passed
   // settings = typeof !== 'undefinded' ? a: settingsStandard;
@@ -60,10 +66,10 @@ function Screen(settings) {
   this.init = function() {
 
     // get head div from document
-    var head = document.getElementById("head");
+    var window = document.getElementById("window");
     // remove any children from head
-    while(head.firstChild) {
-      head.removeChild(head.firstChild);
+    while(window.firstChild) {
+      window.removeChild(window.firstChild);
     }
 
     // create blank div elelment
@@ -75,8 +81,8 @@ function Screen(settings) {
       newScreen.style[style] = this.style[style];
     }
 
-    // append to #head
-    head.appendChild(newScreen);
+    // append to #window
+    window.appendChild(newScreen);
   }
   // init() END
   

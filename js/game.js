@@ -29,6 +29,7 @@ var noneListen = function() {
 // timerStart() START
 // kick off shutdown timer
 var timerStart = function() {
+  timer = true;
   var phaseOne = function() {
     noneListen();
     match(document.getElementsByClassName("clicked"));
@@ -37,14 +38,12 @@ var timerStart = function() {
   var phaseTwo = function() {
     reflip();
     allListen();
+    timer = false;
   }
   document.getElementById("sand").className = "full";
   delay(phaseOne, 2000);
 }
 // timerStart() END
-
-
-
 
 
 // match() START
@@ -63,17 +62,58 @@ var match = function(clicked) {
          paths.push(path);
       }
     }
+
+    // get grid dom node
+    var grid = document.getElementById("grid");
+
     // return match where only one unique path captured
     if(paths.length === 1) {
-      console.log('match!')
+      debugger;
+      // initialise blank match statistics object
+      var matchStats = {};
+      matchStats.n = clicked.length;
+      matchStats.path = paths[0];
+
+      // multi-match handling
+      if(clicked.length > 2){
+        var message = multi[clicked.length].alert;
+        msg(1, message);
+      }
+      
       // set classes for matched cards
       while(clicked.length > 0) {
         clicked[0].className = "out";
       }
-    }  
-  }
+      // remove matched cards
+      var toReplace = remove();    
+      // return match stats object
+      
+    }
+  }    
 }
 // match() END 
+
+
+// remove() START
+// remove matched cards from grid
+var remove = function() {
+  // initialise empty array for holidng ids
+  var ids = [];
+  // get all matched cards
+  var outs = document.getElementsByClassName("out");
+  // get grid dom node
+  var grid = document.getElementById("grid");
+  // removed all .out cards from grid
+  while(outs.length > 0) {
+    // push id to array
+    ids.push(outs[0].id);
+    // remove card from grid
+    grid.removeChild(outs[0]);
+  }
+
+  return ids;
+}
+// remove() END
 
 
 // click() START
@@ -116,4 +156,5 @@ var reflip = function() {
     // document.getElementsByClassName("clicked")[0].addEventListener("click", guess);
     document.getElementsByClassName("clicked")[0].className = "pending";
   }
+  dropAll();
 }

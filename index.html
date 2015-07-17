@@ -10,10 +10,7 @@
   
 <!--
 
-  <script type="text/javascript" src="js/icons.js"></script>
-  <script type="text/javascript" src="js/iconSets.js"></script>
-  <script type="text/javascript" src="js/elements.js"></script>
-  <script type="text/javascript" src="js/svg.js"></script>
+  
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/screen.js"></script>
 
@@ -24,25 +21,89 @@
   <link rel="stylesheet" href="css/scene.css">
   <link rel="stylesheet" href="css/classComponents.css">
 -->
+  <script type="text/javascript" src="js_scoring/pointsMatch.js"></script>
+
   <script type="text/javascript" src="js/utilities.js"></script>
+
+  <script type="text/javascript" src="js/screen.js"></script>
+
+  <script type="text/javascript" src="js/cardData.js"></script>
+  <script type="text/javascript" src="js/cards.js"></script>
+  
   <script type="text/javascript" src="js/grid.js"></script>
+  
+  <script type="text/javascript" src="js/game.js"></script>
+
+  <script type="text/javascript" src="js_interface/messages.js"></script>
+
+
+
 
   <!-- begin linking CSS -->
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/screen.css">
   <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/timer.css">
+  <link rel="stylesheet" href="css/messages.css">
+
   <!-- end linking CSS -->
 </head>
 <body>
 
-  <div id="stage"></div>
-<!-- 
-  <i class="icon icon-mountains icon-5x"></i>
- -->
+  <div id="status">
+    <p id="hp">HP: 23/64</p>
+    <p id="xp">XP: 23000</p>
+  </div>
 
+  
+  <!-- persective scene -->
+  <div id="screen">
+    <div class="sheet fore animate scroll quick">
+      <i class="icon icon-trees icon-4x"></i>
+    </div>
+    
+    <div class="sheet foreground animate scroll quick">
+      <i class="icon icon-trees icon-5x"></i>
+    </div>
+    
+    <div class="sheet middle animate scroll normal">
+      <i class="icon icon-shop icon-5x"></i>
+    </div>
+    
+    <div class="sheet background">
+      
+    </div>
+    
+    <div class="sheet back animate scroll slow">
+      <i class="icon icon-mountains icon-5x"></i>
+    </div>
+    
+    <div class="sheet sky">
+      
+    </div>
+  </div>
+
+
+  <div id="stage"></div>
   <script type="text/javascript">
     var newGrid = new Grid(gridStandard);
     newGrid.init();
     newGrid.draw();
+    newGrid.cards();
+    allListen();
   </script>  
+<!-- 
+  <i class="icon icon-mountains icon-5x"></i>
+ -->
+<div id="hourglass">
+  <div id="sand" class="empty"></div>
+</div>
+
+<div id="messages">
+  <p id="message1">Test: One!</p>
+  <p id="message2">Test: Two!</p>
+  <p id="message3">Test: Three!</p>
+  <p id="message4">Test: Four!</p>
+</div>
 </body>
 </html>
